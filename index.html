@@ -13,28 +13,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     
     <style>
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: #030712; 
-        }
-        
-        .neon-glow {
-            text-shadow: 0 0 10px #ef4444, 0 0 20px #ef4444, 0 0 30px #f97316;
-        }
-        
+        body { font-family: 'Montserrat', sans-serif; background-color: #030712; }
+        .neon-glow { text-shadow: 0 0 10px #ef4444, 0 0 20px #ef4444, 0 0 30px #f97316; }
         .btn-neon {
-            background-color: transparent;
-            border: 2px solid #ef4444;
-            color: #fff;
-            box-shadow: 0 0 10px #ef4444;
-            transition: all 0.3s ease;
+            background-color: transparent; border: 2px solid #ef4444; color: #fff;
+            box-shadow: 0 0 10px #ef4444; transition: all 0.3s ease;
         }
         .btn-neon:hover {
-            background-color: #ef4444;
-            box-shadow: 0 0 20px #ef4444, 0 0 30px #f97316;
+            background-color: #ef4444; box-shadow: 0 0 20px #ef4444, 0 0 30px #f97316;
             transform: translateY(-2px);
         }
-
         .whatsapp-float {
             position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
             background-color: #25d366; color: #fff; border-radius: 50px; 
@@ -43,42 +31,170 @@
             transition: transform 0.3s ease;
         }
         .whatsapp-float:hover { transform: scale(1.1); }
+        
+        .photo-card { overflow: hidden; position: relative; border-radius: 1rem; }
+        .photo-card img { transition: transform 0.5s ease; width: 100%; height: 100%; object-cover: cover; }
+        .photo-card:hover img { transform: scale(1.1); }
     </style>
 </head>
 <body class="text-gray-100 selection:bg-red-600 selection:text-white">
 
     <header class="bg-gray-950 sticky top-0 z-50 shadow-lg border-b border-red-900/50">
-        <div class="container mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
             
-            <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
-                <img src="img/LogoStrike.jpg" alt="Strike Boliche E Bar Logo" class="w-14 h-14 object-contain rounded-full border-2 border-red-500 p-0.5">
-                <div class="flex flex-col items-center sm:items-start gap-1">
+            <div class="flex items-center gap-3">
+                <img src="img/LogoStrike.jpg" alt="Strike Logo" class="w-14 h-14 object-contain rounded-full border-2 border-red-500 p-0.5">
+                <div class="flex flex-col">
                     <h1 class="text-xl font-extrabold tracking-tighter text-white uppercase">Strike</h1>
-                    <div class="flex flex-col items-center sm:items-start gap-1">
-                        <div class="flex items-center gap-1 text-[10px] text-yellow-500 font-bold uppercase">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-white ml-1">4.4</span>
-                        </div>
-                        <span class="text-[8px] text-gray-400 font-bold uppercase tracking-widest">(+1.000 Avaliações)</span>
+                    <div class="flex items-center gap-1 text-[10px] text-yellow-500 font-bold uppercase">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-400 ml-1">4.4 (+1k avaliações)</span>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-3 sm:mt-0">
-                <div class="flex items-center gap-6">
-                    <a href="https://www.facebook.com/StrikeGuaiba" target="_blank" class="text-gray-400 hover:text-blue-500 transition text-2xl">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/Strikeguaiba" target="_blank" class="text-gray-400 hover:text-red-500 transition text-2xl">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <a href="https://www.facebook.com/StrikeGuaiba" target="_blank" class="text-gray-400 hover:text-blue-500 transition text-xl"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/Strikeguaiba" target="_blank" class="text-gray-400 hover:text-red-500 transition text-xl"><i class="fab fa-instagram"></i></a>
                 </div>
-                <a href="https://wa.me/5551996188887?text=Olá, gostaria de fazer uma reserva." target="_blank" class="bg-red-600 text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition shadow-md w-full sm:w-auto text-center">
+                <a href="https://wa.me/5551996188887?text=Olá, gostaria de fazer uma reserva." target="_blank" class="bg-red-600 text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition shadow-md">
                     Reservas
                 </a>
             </div>
         </div>
     </header>
 
-    </body>
+    <section class="relative pt-16 pb-24 px-4 text-center overflow-hidden">
+        <div class="container mx-auto max-w-5xl">
+            <img src="img/LogoStrike.jpg" alt="Strike Logo" class="mx-auto w-40 h-40 object-contain mb-10 rounded-full border-8 border-red-600 shadow-2xl">
+            <h2 class="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tighter leading-none text-white neon-glow">DIVERSÃO<br>EM GUAÍBA!</h2>
+            <p class="text-gray-400 mb-12 text-base md:text-xl max-w-2xl mx-auto font-medium">
+                Boliche profissional, salão para eventos, karaokê e música ao vivo. O Strike é o lugar certo para reunir a galera.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://wa.me/5551996188887?text=Olá, gostaria de solicitar o cardápio." target="_blank" class="bg-gray-800 hover:bg-gray-700 text-white px-10 py-5 rounded-xl font-extrabold flex items-center justify-center gap-3 transition shadow-xl uppercase tracking-wider w-full md:w-auto">
+                    <i class="fas fa-utensils text-xl"></i> Cardápio
+                </a>
+                <a href="https://wa.me/5551996188887?text=Olá, gostaria de fazer uma reserva." target="_blank" class="btn-neon px-12 py-5 rounded-xl font-black flex items-center justify-center gap-3 uppercase tracking-wider w-full md:w-auto">
+                    <i class="fas fa-calendar-check text-2xl"></i> Reservas
+                </a>
+            </div>
+        </div>
+        <div class="absolute inset-0 bg-gray-950/90 -z-10" style="background-image: radial-gradient(at 10% 10%, #450a0a 0px, transparent 50%), radial-gradient(at 90% 90%, #172554 0px, transparent 50%);"></div>
+    </section>
+
+    <section class="py-16 px-4 container mx-auto bg-gray-950 rounded-3xl shadow-2xl border border-red-900/50">
+        <div class="text-center mb-16">
+            <h3 class="text-2xl md:text-3xl font-black uppercase text-white tracking-tight">Aqui você encontra</h3>
+            <div class="h-1.5 w-20 bg-red-600 mx-auto mt-2"></div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div class="bg-gray-900 rounded-2xl p-6 md:p-8 flex flex-col items-center hover:bg-gray-800 transition border border-gray-800">
+                <i class="fas fa-bowling-ball text-4xl mb-4 text-red-500"></i>
+                <h4 class="font-bold text-[10px] md:text-sm uppercase text-center tracking-widest text-white">Boliche</h4>
+            </div>
+            <div class="bg-gray-900 rounded-2xl p-6 md:p-8 flex flex-col items-center hover:bg-gray-800 transition border border-gray-800">
+                <i class="fas fa-beer text-4xl mb-4 text-orange-500"></i>
+                <h4 class="font-bold text-[10px] md:text-sm uppercase text-center tracking-widest text-white">Bar & Petiscos</h4>
+            </div>
+            <div class="bg-gray-900 rounded-2xl p-6 md:p-8 flex flex-col items-center hover:bg-gray-800 transition border border-gray-800">
+                <i class="fas fa-child text-4xl mb-4 text-yellow-500"></i>
+                <h4 class="font-bold text-[10px] md:text-sm uppercase text-center tracking-widest text-white">Espaço Kids</h4>
+            </div>
+            <div class="bg-gray-900 rounded-2xl p-6 md:p-8 flex flex-col items-center hover:bg-gray-800 transition border border-gray-800">
+                <i class="fas fa-glass-cheers text-4xl mb-4 text-red-500"></i>
+                <h4 class="font-bold text-[10px] md:text-sm uppercase text-center tracking-widest text-white">Salão de Festas</h4>
+            </div>
+            <div class="bg-gray-900 rounded-2xl p-6 md:p-8 flex flex-col items-center hover:bg-gray-800 transition border border-gray-800">
+                <i class="fas fa-microphone-alt text-4xl mb-4 text-purple-500"></i>
+                <h4 class="font-bold text-[10px] md:text-sm uppercase text-center tracking-widest text-white">Karaokê</h4>
+            </div>
+            <div class="bg-gray-900 rounded-2xl p-6 md:p-8 flex flex-col items-center hover:bg-gray-800 transition border border-gray-800">
+                <i class="fas fa-music text-4xl mb-4 text-blue-500"></i>
+                <h4 class="font-bold text-[10px] md:text-sm uppercase text-center tracking-widest text-white">Música ao Vivo</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 container mx-auto">
+        <div class="text-center mb-12">
+            <h3 class="text-2xl md:text-3xl font-black uppercase text-white tracking-tight">Ambiente</h3>
+            <div class="h-1.5 w-20 bg-red-600 mx-auto mt-2"></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            <div class="photo-card h-64 shadow-lg"><img src="img/foto1.jpg"></div>
+            <div class="photo-card h-64 shadow-lg"><img src="img/foto2.jpg"></div>
+            <div class="photo-card h-64 shadow-lg"><img src="img/foto3.jpg"></div>
+            <div class="photo-card h-64 shadow-lg"><img src="img/foto4.jpg"></div>
+        </div>
+    </section>
+
+    <section class="pb-20 px-4 container mx-auto">
+        <div class="max-w-4xl mx-auto bg-gray-900 rounded-3xl shadow-xl border border-gray-800 overflow-hidden flex flex-col md:row-reverse md:flex-row">
+            <div class="p-8 md:w-1/2">
+                <h3 class="text-xl font-black mb-6 uppercase flex items-center gap-2 text-white">
+                    <i class="fas fa-map-marker-alt text-red-600"></i> Localização
+                </h3>
+                <div class="space-y-4 text-sm font-medium text-gray-400">
+                    <p>
+                        <strong class="text-gray-100 uppercase text-xs tracking-widest block mb-1">Endereço</strong>
+                        Av. Comendador Ismael Chaves Barcelos, 155<br>Bairro Engenho, Guaíba - RS
+                    </p>
+                    <p>
+                        <strong class="text-gray-100 uppercase text-xs tracking-widest block mb-1">Horário</strong>
+                        Qui a Dom: 19h em diante<br>
+                        <span id="status-boliche" class="inline-block mt-2 px-3 py-1 rounded-full text-xs font-bold bg-gray-700 text-gray-300">Verificando...</span>
+                    </p>
+                </div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Strike+Boliche+E+Bar+Guaiba" target="_blank" class="mt-8 inline-block bg-white text-black px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-gray-200 transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fas fa-route text-lg"></i> Como Chegar
+                </a>
+            </div>
+            <div class="h-64 md:h-auto md:w-1/2 bg-gray-800">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.48375836486!2d-51.3283296!3d-30.0125434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197f91dc4b3a43%3A0xe8d764a0127cae21!2sStrike%20Boliche%20E%20Bar!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 text-gray-600 py-10 text-center text-[10px] font-bold uppercase tracking-widest border-t border-gray-900">
+        <div class="container mx-auto px-4">
+            <p class="mb-4">© 2026 STRIKE BOLICHE E BAR | GUAÍBA - RS</p>
+            <div class="flex justify-center gap-6 text-lg text-gray-700">
+                <a href="https://www.facebook.com/StrikeGuaiba" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/Strikeguaiba" target="_blank" class="hover:text-red-500 transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5551996188887" target="_blank" class="hover:text-red-500 transition"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5551996188887?text=Olá, gostaria de fazer uma reserva." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        function verificarStatusBoliche() {
+            const elementoStatus = document.getElementById('status-boliche');
+            const agora = new Date();
+            const dia = agora.getDay(); 
+            const hora = agora.getHours();
+            let aberto = false;
+
+            // Lógica Quinta a Domingo (19h em diante)
+            if ((dia >= 4 || dia === 0) && hora >= 19) aberto = true;
+            // Madrugada de Sex, Sáb e Dom até as 02h
+            if ((dia === 5 || dia === 6 || dia === 0) && hora < 2) aberto = true;
+
+            if (aberto) {
+                elementoStatus.textContent = "🟢 Aberto Agora";
+                elementoStatus.className = "inline-block mt-2 px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 shadow-sm";
+            } else {
+                elementoStatus.textContent = "🔴 Fechado no momento";
+                elementoStatus.className = "inline-block mt-2 px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 shadow-sm";
+            }
+        }
+        verificarStatusBoliche();
+        setInterval(verificarStatusBoliche, 60000);
+    </script>
+</body>
 </html>
