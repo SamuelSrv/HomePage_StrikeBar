@@ -136,17 +136,14 @@
             <div class="price-card p-8 rounded-3xl text-center">
                 <h4 class="text-red-500 font-black uppercase tracking-tighter text-xl mb-2">Quinta</h4>
                 <div class="text-4xl font-black text-white mb-1">R$ 59,90</div>
-                <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Aproveite o meio da semana</p>
             </div>
             <div class="price-card p-8 rounded-3xl text-center border-red-600 shadow-2xl shadow-red-900/20">
                 <h4 class="text-red-500 font-black uppercase tracking-tighter text-xl mb-2">Sexta e Sábado</h4>
                 <div class="text-4xl font-black text-white mb-1">R$ 89,90</div>
-                <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">O melhor do final de semana</p>
             </div>
             <div class="price-card p-8 rounded-3xl text-center">
                 <h4 class="text-red-500 font-black uppercase tracking-tighter text-xl mb-2">Domingo</h4>
                 <div class="text-4xl font-black text-white mb-1">R$ 69,90</div>
-                <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Feche o findi com diversão</p>
             </div>
         </div>
     </section>
@@ -180,8 +177,8 @@
                         <strong class="text-gray-100 uppercase text-xs tracking-widest block mb-2">Horários de Funcionamento</strong>
                         <ul class="space-y-1 text-xs">
                             <li class="flex justify-between border-b border-gray-800 pb-1"><span>Quinta</span> <span class="text-white">19:00 – 00:00</span></li>
-                            <li class="flex justify-between border-b border-gray-800 pb-1"><span>Sexta</span> <span class="text-white">19:00 – 01:30</span></li>
-                            <li class="flex justify-between border-b border-gray-800 pb-1"><span>Sábado</span> <span class="text-white">19:00 – 01:30</span></li>
+                            <li class="flex justify-between border-b border-gray-800 pb-1"><span>Sexta</span> <span class="text-white">19:00 – 02:00</span></li>
+                            <li class="flex justify-between border-b border-gray-800 pb-1"><span>Sábado</span> <span class="text-white">19:00 – 02:00</span></li>
                             <li class="flex justify-between border-b border-gray-800 pb-1"><span>Domingo</span> <span class="text-white">19:00 – 00:00</span></li>
                             <li class="flex justify-between text-gray-600 italic"><span>Segunda a Quarta</span> <span>Fechado</span></li>
                         </ul>
@@ -191,12 +188,12 @@
                          <span id="status-boliche" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-gray-700 text-gray-300">Verificando...</span>
                     </div>
                 </div>
-                <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.9868772027284!2d-51.32049182367767!3d-30.094553333066115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197f91dc4b3a43%3A0xe8d7e6a0127cae21!2sStrike%20Boliche%20E%20Bar!5e0!3m2!1spt-BR!2sbr!4v1713821000000!5m2!1spt-BR!2sbr7" target="_blank" class="mt-8 inline-block bg-white text-black px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-gray-200 transition shadow-lg flex items-center justify-center gap-2">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Strike+Boliche+E+Bar+Guaíba" target="_blank" class="mt-8 inline-block bg-white text-black px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-gray-200 transition shadow-lg flex items-center justify-center gap-2">
                     <i class="fas fa-route text-lg"></i> Como Chegar
                 </a>
             </div>
             <div class="h-64 md:h-auto md:w-1/2 bg-gray-800">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.9868772027284!2d-51.32049182367767!3d-30.094553333066115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197f91dc4b3a43%3A0xe8d7e6a0127cae21!2sStrike%20Boliche%20E%20Bar!5e0!3m2!1spt-BR!2sbr!4v1713821000000!5m2!1spt-BR!2sbr8" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.986873322055!2d-51.32631552435552!3d-30.094595233261625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197f91dc4d3ac3%3A0xe8d7a3a012726e21!2sStrike%20Boliche%20E%20Bar!5e0!3m2!1spt-BR!2sbr!4v1714400000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -227,14 +224,19 @@
 
             let aberto = false;
 
-            if (dia === 4 && tempoDecimal >= 19) aberto = true;
+            // Quinta: 19:00 – 00:00
+            if (dia === 4 && (tempoDecimal >= 19 && tempoDecimal < 24)) aberto = true;
+
+            // Sexta: 19:00 – 02:00 (Sábado madrugada)
             if (dia === 5 && tempoDecimal >= 19) aberto = true;
-            if (dia === 6) {
-                if (tempoDecimal < 1.5 || tempoDecimal >= 19) aberto = true;
-            }
-            if (dia === 0) {
-                if (tempoDecimal < 1.5 || (tempoDecimal >= 19 && tempoDecimal < 24)) aberto = true;
-            }
+            if (dia === 6 && tempoDecimal < 2) aberto = true;
+
+            // Sábado: 19:00 – 02:00 (Domingo madrugada)
+            if (dia === 6 && tempoDecimal >= 19) aberto = true;
+            if (dia === 0 && tempoDecimal < 2) aberto = true;
+
+            // Domingo: 19:00 – 00:00
+            if (dia === 0 && (tempoDecimal >= 19 && tempoDecimal < 24)) aberto = true;
 
             if (aberto) {
                 elementoStatus.textContent = "🟢 Aberto Agora";
