@@ -35,6 +35,16 @@
         .photo-card { overflow: hidden; position: relative; border-radius: 1rem; }
         .photo-card img { transition: transform 0.5s ease; width: 100%; height: 100%; object-fit: cover; }
         .photo-card:hover img { transform: scale(1.1); }
+
+        .price-card {
+            background: linear-gradient(145deg, #111827, #030712);
+            border: 1px solid #1f2937;
+            transition: all 0.3s ease;
+        }
+        .price-card:hover {
+            border-color: #ef4444;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="text-gray-100 selection:bg-red-600 selection:text-white">
@@ -115,6 +125,32 @@
         </div>
     </section>
 
+    <section class="py-16 px-4 container mx-auto">
+        <div class="text-center mb-12">
+            <h3 class="text-2xl md:text-3xl font-black uppercase text-white tracking-tight">Valores das Pistas</h3>
+            <p class="text-gray-500 text-xs uppercase tracking-widest mt-2">(Preço por 1 hora de jogo)</p>
+            <div class="h-1.5 w-20 bg-red-600 mx-auto mt-4"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div class="price-card p-8 rounded-3xl text-center">
+                <h4 class="text-red-500 font-black uppercase tracking-tighter text-xl mb-2">Quinta</h4>
+                <div class="text-4xl font-black text-white mb-1">R$ 59,90</div>
+                <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Aproveite o meio da semana</p>
+            </div>
+            <div class="price-card p-8 rounded-3xl text-center border-red-600 shadow-2xl shadow-red-900/20">
+                <h4 class="text-red-500 font-black uppercase tracking-tighter text-xl mb-2">Sexta e Sábado</h4>
+                <div class="text-4xl font-black text-white mb-1">R$ 89,90</div>
+                <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">O melhor do final de semana</p>
+            </div>
+            <div class="price-card p-8 rounded-3xl text-center">
+                <h4 class="text-red-500 font-black uppercase tracking-tighter text-xl mb-2">Domingo</h4>
+                <div class="text-4xl font-black text-white mb-1">R$ 69,90</div>
+                <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Feche o findi com diversão</p>
+            </div>
+        </div>
+    </section>
+
     <section class="py-20 px-4 container mx-auto">
         <div class="text-center mb-12">
             <h3 class="text-2xl md:text-3xl font-black uppercase text-white tracking-tight">Ambiente</h3>
@@ -155,12 +191,12 @@
                          <span id="status-boliche" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-gray-700 text-gray-300">Verificando...</span>
                     </div>
                 </div>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Strike+Boliche+E+Bar+Guaíba" target="_blank" class="mt-8 inline-block bg-white text-black px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-gray-200 transition shadow-lg flex items-center justify-center gap-2">
+                <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.9868772027284!2d-51.32049182367767!3d-30.094553333066115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197f91dc4b3a43%3A0xe8d7e6a0127cae21!2sStrike%20Boliche%20E%20Bar!5e0!3m2!1spt-BR!2sbr!4v1713821000000!5m2!1spt-BR!2sbr7" target="_blank" class="mt-8 inline-block bg-white text-black px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-gray-200 transition shadow-lg flex items-center justify-center gap-2">
                     <i class="fas fa-route text-lg"></i> Como Chegar
                 </a>
             </div>
             <div class="h-64 md:h-auto md:w-1/2 bg-gray-800">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.9868662925345!2d-51.3149026!3d-30.1118181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197f91dc4b3ac3%3A0xa8d7e6a0127c6e21!2sStrike%20Boliche%20E%20Bar!5e0!3m2!1spt-BR!2sbr!4v1714312345678!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.9868772027284!2d-51.32049182367767!3d-30.094553333066115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197f91dc4b3a43%3A0xe8d7e6a0127cae21!2sStrike%20Boliche%20E%20Bar!5e0!3m2!1spt-BR!2sbr!4v1713821000000!5m2!1spt-BR!2sbr8" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -191,18 +227,11 @@
 
             let aberto = false;
 
-            // QUINTA: 19h às 00h
             if (dia === 4 && tempoDecimal >= 19) aberto = true;
-
-            // SEXTA: 19h em diante
             if (dia === 5 && tempoDecimal >= 19) aberto = true;
-
-            // SÁBADO: Madrugada (até 01:30 de sexta) + Noite (19h em diante)
             if (dia === 6) {
                 if (tempoDecimal < 1.5 || tempoDecimal >= 19) aberto = true;
             }
-
-            // DOMINGO: Madrugada (até 01:30 de sábado) + Noite (19h às 00h)
             if (dia === 0) {
                 if (tempoDecimal < 1.5 || (tempoDecimal >= 19 && tempoDecimal < 24)) aberto = true;
             }
