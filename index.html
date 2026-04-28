@@ -71,8 +71,8 @@
                 Boliche profissional, salão para eventos, karaokê e música ao vivo. O Strike é o lugar certo para reunir a galera.
             </p>
             <div class="flex flex-col md:flex-row justify-center gap-5">
-                <a href="https://wa.me/5551996188887?text=Olá, gostaria de solicitar o cardápio." target="_blank" class="bg-gray-800 hover:bg-gray-700 text-white px-10 py-5 rounded-xl font-extrabold flex items-center justify-center gap-3 transition shadow-xl uppercase tracking-wider w-full md:w-auto">
-                    <i class="fas fa-utensils text-xl"></i> Cardápio
+                <a href="cardapio-strike.pdf" target="_blank" class="bg-gray-800 hover:bg-gray-700 text-white px-10 py-5 rounded-xl font-extrabold flex items-center justify-center gap-3 transition shadow-xl uppercase tracking-wider w-full md:w-auto">
+                    <i class="fas fa-file-pdf text-xl"></i> Ver Cardápio
                 </a>
                 <a href="https://wa.me/5551996188887?text=Olá, gostaria de fazer uma reserva." target="_blank" class="btn-neon px-12 py-5 rounded-xl font-black flex items-center justify-center gap-3 uppercase tracking-wider w-full md:w-auto">
                     <i class="fas fa-calendar-check text-2xl"></i> Reservas
@@ -121,10 +121,10 @@
             <div class="h-1.5 w-20 bg-red-600 mx-auto mt-2"></div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-            <div class="photo-card h-64 shadow-lg"><img src="img/foto1.jpg"></div>
-            <div class="photo-card h-64 shadow-lg"><img src="img/foto2.jpg"></div>
-            <div class="photo-card h-64 shadow-lg"><img src="img/foto3.jpg"></div>
-            <div class="photo-card h-64 shadow-lg"><img src="img/foto4.jpg"></div>
+            <div class="photo-card h-64 shadow-lg"><img src="img/foto1.jpg" alt="Pistas"></div>
+            <div class="photo-card h-64 shadow-lg"><img src="img/foto2.jpg" alt="Petiscos"></div>
+            <div class="photo-card h-64 shadow-lg"><img src="img/foto3.jpg" alt="Kids"></div>
+            <div class="photo-card h-64 shadow-lg"><img src="img/foto4.jpg" alt="Karaokê"></div>
         </div>
     </section>
 
@@ -155,12 +155,12 @@
                          <span id="status-boliche" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-gray-700 text-gray-300">Verificando...</span>
                     </div>
                 </div>
-                <a href="https://maps.google.com/?cid=16778132511971388961&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="mt-8 inline-block bg-white text-black px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-gray-200 transition shadow-lg flex items-center justify-center gap-2">
+                <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.9868772027284!2d-51.32049182367767!3d-30.094553333066115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197f91dc4b3a43%3A0xe8d7e6a0127cae21!2sStrike%20Boliche%20E%20Bar!5e0!3m2!1spt-BR!2sbr!4v1713821000000!5m2!1spt-BR!2sbr4" target="_blank" class="mt-8 inline-block bg-white text-black px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-gray-200 transition shadow-lg flex items-center justify-center gap-2">
                     <i class="fas fa-route text-lg"></i> Como Chegar
                 </a>
             </div>
             <div class="h-64 md:h-auto md:w-1/2 bg-gray-800">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.9868772027284!2d-51.32049182367767!3d-30.094553333066115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197f91dc4b3a43%3A0xe8d7e6a0127cae21!2sStrike%20Boliche%20E%20Bar!5e0!3m2!1spt-BR!2sbr!4v1713821000000!5m2!1spt-BR!2sbr3" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.9868772027284!2d-51.32049182367767!3d-30.094553333066115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197f91dc4b3a43%3A0xe8d7e6a0127cae21!2sStrike%20Boliche%20E%20Bar!5e0!3m2!1spt-BR!2sbr!4v1713821000000!5m2!1spt-BR!2sbr5" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -191,18 +191,12 @@
 
             let aberto = false;
 
-            // QUINTA: 19h às 00h
+            // Lógica ajustada para as madrugadas e horários específicos
             if (dia === 4 && tempoDecimal >= 19) aberto = true;
-
-            // SEXTA: 19h em diante (cobre até meia-noite)
             if (dia === 5 && tempoDecimal >= 19) aberto = true;
-
-            // SÁBADO: Madrugada (até 01:30 da noite de sexta) + Noite (19h em diante)
             if (dia === 6) {
                 if (tempoDecimal < 1.5 || tempoDecimal >= 19) aberto = true;
             }
-
-            // DOMINGO: Madrugada (até 01:30 da noite de sábado) + Noite (19h às 00h)
             if (dia === 0) {
                 if (tempoDecimal < 1.5 || (tempoDecimal >= 19 && tempoDecimal < 24)) aberto = true;
             }
